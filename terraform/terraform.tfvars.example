@@ -1,0 +1,27 @@
+# Example terraform.tfvars
+# Copy to terraform.tfvars and customize as needed.
+
+project_name = "secure-mesh"
+
+availability_zones = ["ap-southeast-1a", "ap-southeast-1b"]
+
+vpc_configs = {
+  dev = {
+    cidr_block           = "10.0.0.0/16"
+    public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+    private_subnet_cidrs = ["10.0.10.0/24", "10.0.11.0/24"]
+    enable_nat_gateway   = false
+  }
+  staging = {
+    cidr_block           = "10.1.0.0/16"
+    public_subnet_cidrs  = ["10.1.1.0/24", "10.1.2.0/24"]
+    private_subnet_cidrs = ["10.1.10.0/24", "10.1.11.0/24"]
+    enable_nat_gateway   = true
+  }
+  prod = {
+    cidr_block           = "10.2.0.0/16"
+    public_subnet_cidrs  = ["10.2.1.0/24", "10.2.2.0/24"]
+    private_subnet_cidrs = ["10.2.10.0/24", "10.2.11.0/24"]
+    enable_nat_gateway   = true
+  }
+}
